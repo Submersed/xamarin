@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="testXamarin.View.RestApi.TestRESTPage">
+    <Grid
+        RowSpacing="0"
+        ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout
+            Grid.Row="0"
+            Spacing="15"
+            Orientation="Horizontal" HorizontalOptions="Center" >
+            <Button
+                Text="GET EMPLOYEES"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="Display20_Clicked"/>
+            <Button
+                Text="CREATE EMPLOYEE"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="DisplayNew_Clicked"/>
+        </StackLayout>
+        <StackLayout Grid.Row="1" Spacing="0" Orientation="Vertical">
+            <ListView RowHeight="60" x:Name="EmployeesList" ItemsSource="{Binding}">
+                <ListView.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Text="Id"
+                            HorizontalOptions="FillAndExpand"
+                            Grid.Column="0"
+                            FontSize="Medium"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center" />
+                        <Label
+                            Text="Name"
+                            HorizontalOptions="FillAndExpand"
+                            Grid.Column="1"
+                            FontSize="Medium"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center" />
+                        <Label
+                            Text="Salary"
+                            HorizontalOptions="FillAndExpand"
+                            Grid.Column="2"
+                            FontSize="Medium"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="0"
+                                    Text="{Binding Id}"
+                                    TextColor="Black"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center"
+                                    Margin="1" />
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{Binding EmployeeName}"
+                                    TextColor="Black"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center"
+                                    Margin="1" />
+                                <Label
+                                    Grid.Column="2"
+                                    Text="{Binding EmployeeSalary}"
+                                    TextColor="Black"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center"
+                                    Margin="1" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

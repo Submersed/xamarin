@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="testXamarin.View.Login" BackgroundColor="White">
+
+    <ContentPage.Content>
+        <Grid Margin="16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout>
+                <Label Text="Please enter your credentials" />
+                <Entry x:Name="UsernameEntry" TextColor="#006385" 
+                       Text="{Binding Username}"
+                       Placeholder="Username" />
+                <Entry x:Name="PasswordEntry" TextColor="#006385" 
+                       Text="{Binding Password}"
+                       Placeholder="Password"
+                       IsPassword="True" />
+                <Label x:Name="validation" Text="Invalid credentials entered"
+                       IsVisible="False"
+                       
+                       TextColor="Red" />
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Button x:Name="LoginBtn" Text="Login" Clicked="LoginBtn_Clicked"/>
+                    <Button x:Name="AboutBtn" Text="About" Clicked="AboutBtn_Clicked" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Button x:Name="Createtestusers" Text="Create test users" Clicked="CreateUsersBtn_Clicked"/>
+                    <Button x:Name="Addtestsubjects" Text="Add test subjects" Clicked="AddSubjectsBtn_Clicked"/>
+                    <Button Text="RestApi" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

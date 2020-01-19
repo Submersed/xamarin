@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="testXamarin.View.SyllabusPage" BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid  BackgroundColor="#006385">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Text="3.Letnik" HorizontalOptions="Center" Grid.ColumnSpan="2" TextColor="White" />
+
+            <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+                <ListView x:Name="Winter" BackgroundColor="#006385">
+                    <ListView.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Zimski" Grid.Column="0" Grid.Row="0" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="Center"/>
+                            <Label Text="ECTS" Grid.Column="1" Grid.Row="0" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="Center"/>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Label Text = "{Binding Subject}" TextColor="White" HorizontalTextAlignment="Center" Grid.Column="0" HorizontalOptions="Center"/>
+                                    <Label Text = "{Binding ECTS}" TextColor="White" HorizontalTextAlignment="Center" Grid.Column="1" HorizontalOptions="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            
+            <StackLayout Grid.Column="1" Grid.Row="1">
+                <ListView x:Name="Summer" BackgroundColor="#006385">
+                    <ListView.Header>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Letni" Grid.Column="0" Grid.Row="0" TextColor="White" HorizontalTextAlignment="Center"/>
+                            <Label Text="ECTS" Grid.Column="1" Grid.Row="0" TextColor="White" HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Label Text = "{Binding Subject}" TextColor="White" HorizontalTextAlignment="Center" Grid.Column="0" HorizontalOptions="Center"/>
+                                    <Label Text = "{Binding ECTS}" TextColor="White" HorizontalTextAlignment="Center" Grid.Column="1" HorizontalOptions="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
